@@ -1,0 +1,7 @@
+{
+  "name": "urnaprojeto",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
