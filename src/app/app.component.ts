@@ -24,7 +24,7 @@ export class AppComponent {
     this.plataform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.db.createDatabase();
+      this.db.openDatabase();
     })
   }
 }

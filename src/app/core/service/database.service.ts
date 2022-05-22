@@ -22,13 +22,13 @@ export class DatabaseService {
 
   async createDatabase(){
     const sqlCreateDatabase = this.getCreateTable();
-    const result = await this.sqlitePorter.importSqlToDb(this.db, sqlCreateDatabase)
+    const result = await this.sqlitePorter.importSqlToDb(this.db, sqlCreateDatabase);
     return result ? true : false;
   }
 
   getCreateTable(){
     const sqls = [];
-    sqls.push('CREATE TABLE IF NOT EXISTS candidatos (id_c INTEGER PRIMARY KEY AUTO INCREMENT, nome_c VARCHAR(100) NOT NULL, partido_c VARCHAR(50) NOT NULL, numero_c INTEGER NOT NULL, votos_c INTEGER);');
+    sqls.push('CREATE TABLE IF NOT EXISTS candidatos (id_c INTEGER PRIMARY KEY AUTOINCREMENT, nome_c VARCHAR(100) NOT NULL, partido_c VARCHAR(50) NOT NULL, numero_c INTEGER NOT NULL, votos_c INTEGER);');
     return sqls.join('\n');
   }
 
