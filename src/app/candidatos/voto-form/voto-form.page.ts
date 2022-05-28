@@ -80,6 +80,8 @@ export class VotoFormPage implements OnInit {
     const value = $event.target.value;
     if (value && value.length >=5) {
       this.candidatos = await this.candidatoService.filterNum(value);
+    } else {
+      this.limparCandidatos();
     }
   }
 

@@ -7,6 +7,21 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-list class="ion-padding">
+  <ion-item-sliding *ngFor="let candidato of candidatos" lines="full">
+    <ion-thumbnail slot="start">
+      <img src="https://blog.supernosso.com/wp-content/uploads/2021/08/Como-temperar-uma-salada-opt-540x326.jpg">
+    </ion-thumbnail>
+    <ion-label class="ion-padding">
+      <div class="ion-padding">
+        <h1>Candidato: {{candidato.nome_c}}</h1>
+        <p>Partido: {{candidato.partido_c}}</p>
+        <p>Número: {{candidato.numero_c}}</p>
+      </div>
+    </ion-label>
+  </ion-item-sliding>
+  </ion-list>
+  
 <ion-content class="ion-padding">
   <form (ngSubmit)="onSubmit()">
     <ion-item>
@@ -21,22 +36,7 @@
       <ion-button type="button" color="danger" expand="block" [routerLink]="['/candidatos']">Cancelar</ion-button>
     </div>
   </form>
-
-  <ion-list>
-    <ion-item-sliding *ngFor="let candidato of candidatos" lines="full">
-      <ion-thumbnail slot="start">
-        <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">
-      </ion-thumbnail>
-      <ion-label>
-        <div>
-          <h1>Candidato: {{candidato.nome_c}}</h1>
-          <p>Partido: {{candidato.partido_c}}</p>
-          <p>Número: {{candidato.numero_c}}</p>
-        </div>
-      </ion-label>
-    </ion-item-sliding>
-    </ion-list>
-    <div class="ion-margin-vertical">
-      <ion-button type="button" color="danger" expand="block" [routerLink]="['/candidatos/votos']">Encerrar Eleição</ion-button>
-    </div>
+  <div style="height: 200px;">
+    <ion-button style="position: absolute;" style="bottom: 0;" type="button" vertical="bottom" color="danger" clearInput="true" expand="block" [routerLink]="['/candidatos/votos']">Encerrar Eleição</ion-button>
+  </div>
 </ion-content>
