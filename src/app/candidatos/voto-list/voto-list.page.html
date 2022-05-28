@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Fim da Eleição!!!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-searchbar placeholder="Procurar"
+    (ionClear)="doSearchClear()"
+    (ionChange)="doSearchBarChange($event)">
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let candidato of candidatos" lines="full">
+      <ion-thumbnail slot="start">
+        <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">
+      </ion-thumbnail>
+      <ion-label>
+        <div>
+          <h1>Candidato: {{candidato.nome_c}}</h1>
+          <p>Partido: {{candidato.partido_c}}</p>
+          <p>Número: {{candidato.numero_c}}</p>
+          <ion-chip color="success">
+            <ion-label>Votos: {{candidato.votos_c}}</ion-label>
+          </ion-chip>
+        </div>
+      </ion-label>
+      </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+

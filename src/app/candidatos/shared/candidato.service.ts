@@ -17,10 +17,26 @@ export class CandidatoService {
     }
 
   }
+  save2(candidato: Candidato) {
+    if (candidato.numero_c != '00000') {
+      return this.votar(candidato);
+    } else {
+      return this.votar2(candidato);
+    }
+  }
 
   private insert(candidato: Candidato) {
     const sql = "INSERT INTO candidatos (nome_c, partido_c, numero_c, votos_c) values (?, ?, ?, 0)";
+    candidato.numero_c = String(candidato.numero_c);
     const data = [candidato.nome_c, candidato.partido_c, candidato.numero_c];
+    console.log(candidato.numero_c);
+
+    return this.db.executeSQL(sql,data);
+  }
+  
+  private votar(candidato: Candidato) {
+    const sql = "UPDATE candidatos SET votos_c = votos_c + 1 WHERE numero_c = ?";
+    const data = [candidato.numero_c];
 
     return this.db.executeSQL(sql,data);
   }
@@ -28,6 +44,13 @@ export class CandidatoService {
   private update(candidato: Candidato) {
     const sql = "UPDATE candidatos SET nome_c = ?, partido_c = ?, numero_c = ? WHERE id_c = ?";
     const data = [candidato.nome_c, candidato.partido_c, candidato.numero_c, candidato.id_c];
+
+    return this.db.executeSQL(sql,data);
+  }
+
+  private votar2(candidato: Candidato) {
+    const sql = "UPDATE candidatos SET votos_c = votos_c + 1 WHERE numero_c = '00000'";
+    const data = [candidato.numero_c];
 
     return this.db.executeSQL(sql,data);
   }
@@ -55,14 +78,57 @@ export class CandidatoService {
     }
     return candidato;
   }
+
+  async getByNum(numero: string){
+    const sql = "SELECT * FROM candidatos where numero_c = ?";
+    const data = [numero];
+    const result = await this.db.executeSQL(sql,data);
+    const rows = result.rows;
+    const candidato = new Candidato();
+    if (rows && rows.length > 0) {
+      const item = rows.item(0);
+      candidato.id_c = item.id_c;
+      candidato.nome_c = item.nome_c;
+      candidato.partido_c = item.partido_c;
+      candidato.numero_c = item.numero_c;
+      candidato.votos_c = item.votos_c;
+    }
+    return candidato;
+  }
   async getAll(){
     const sql = "SELECT * FROM candidatos";
     const result = await this.db.executeSQL(sql);
     const candidatos = this.fillCandidatos(result.rows);
     return candidatos;
   }
+  async getAll2(){
+    const sql = "SELECT * FROM candidatos ORDER BY votos_c DESC";
+    const result = await this.db.executeSQL(sql);
+    const candidatos = this.fillCandidatos(result.rows);
+    return candidatos;
+  }
+  async limpar(){
+    const sql = "SELECT * FROM candidatos where id_c = 10000";
+    const result = await this.db.executeSQL(sql);
+    const candidatos = this.fillCandidatos(result.rows);
+    return candidatos;
+  }
   async filter(text: string) {
+    const sql = "SELECT * FROM candidatos WHERE nome_c like ?";
+    const data = [`%${text}%`];
+    const result = await this.db.executeSQL(sql,data);
+    const candidatos = this.fillCandidatos(result.rows);
+    return candidatos
+  }
+  async filterNum(text: string) {
     const sql = "SELECT * FROM candidatos WHERE numero_c like ?";
+    const data = [`%${text}%`];
+    const result = await this.db.executeSQL(sql,data);
+    const candidatos = this.fillCandidatos(result.rows);
+    return candidatos
+  }
+  async filterVot(text: string) {
+    const sql = "SELECT * FROM candidatos WHERE nome_c like ? ORDER BY votos_c DESC";
     const data = [`%${text}%`];
     const result = await this.db.executeSQL(sql,data);
     const candidatos = this.fillCandidatos(result.rows);
