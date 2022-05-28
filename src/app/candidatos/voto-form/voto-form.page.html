@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -10,7 +10,7 @@
 <ion-list class="ion-padding">
   <ion-item-sliding *ngFor="let candidato of candidatos" lines="full">
     <ion-thumbnail slot="start">
-      <img src="https://blog.supernosso.com/wp-content/uploads/2021/08/Como-temperar-uma-salada-opt-540x326.jpg">
+      <img style="margin-left: 20px; height: 70px;"src="https://cdn-icons-png.flaticon.com/512/95/95391.png">
     </ion-thumbnail>
     <ion-label class="ion-padding">
       <div class="ion-padding">
@@ -22,8 +22,21 @@
   </ion-item-sliding>
   </ion-list>
   
-<ion-content class="ion-padding">
-  <form (ngSubmit)="onSubmit()">
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="dark">
+      <ion-tab-button [routerLink]="['/inicial']">
+        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/candidatos']">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/sobre']">
+        <ion-icon name="help-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <form class="ion-padding" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="stacked">Numero do Candidato</ion-label>
       <ion-input autocapitalize="off" [(ngModel)]="candidato.numero_c" name="numero_c" (ionClear)="doSearchClear()"
@@ -36,7 +49,7 @@
       <ion-button type="button" color="danger" expand="block" [routerLink]="['/candidatos']">Cancelar</ion-button>
     </div>
   </form>
-  <div style="height: 200px;">
-    <ion-button style="position: absolute;" style="bottom: 0;" type="button" vertical="bottom" color="danger" clearInput="true" expand="block" [routerLink]="['/candidatos/votos']">Encerrar Eleição</ion-button>
+  <div style="height: 200px;" class="ion-padding">
+    <ion-button style="margin-top: 390px; margin-top: 390px;" type="button" vertical="bottom" color="danger" clearInput="true" expand="block" [routerLink]="['/candidatos/votos']">Encerrar Eleição</ion-button>
   </div>
 </ion-content>

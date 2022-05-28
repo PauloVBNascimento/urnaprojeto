@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Bem-Vindo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <ion-card>
+    <ion-card-header>
+      <img src="https://www.tre-mg.jus.br/imagens/fotos/tre-mg-urna-eletronica-2021/@@images/df151e51-1fc2-4572-a8db-94eaef8e213d.jpeg">
+      <ion-card-subtitle>Urna Eletronica</ion-card-subtitle>
+      <ion-card-title>Eleições 2022</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      A urna eletrônica é um microcomputador de uso específico para eleições, com as seguintes características: resistente, de pequenas dimensões, leve, com autonomia de energia e com recursos de segurança.
+
+Dois terminais compõem a urna eletrônica: o terminal do mesário, onde o eleitor é identificado e autorizado a votar (em alguns modelos de urna, onde é verificada a sua identidade por meio da biometria), e o terminal do eleitor, onde é registrado numericamente o voto.
+    </ion-card-content>
+  </ion-card>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="dark">
+      <ion-tab-button [routerLink]="['/inicial']">
+        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/candidatos']">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/sobre']">
+        <ion-icon name="help-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

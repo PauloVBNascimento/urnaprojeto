@@ -5,7 +5,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'candidatos',
+    redirectTo: 'inicial',
     pathMatch: 'full'
   },
   {
@@ -31,7 +31,16 @@ const routes: Routes = [
   {
     path: 'candidatos/editv/:numero_c',
     loadChildren: () => import('./candidatos/voto-form/voto-form.module').then( m => m.VotoFormPageModule)
+  },
+  {
+    path: 'inicial',
+    loadChildren: () => import('./candidatos/inicial/inicial.module').then( m => m.InicialPageModule)
+  },
+  {
+    path: 'sobre',
+    loadChildren: () => import('./candidatos/sobre/sobre.module').then( m => m.SobrePageModule)
   }
+
 
 ];
 

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Sobre
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="dark">
+      <ion-tab-button [routerLink]="['/inicial']">
+        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/candidatos']">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/sobre']">
+        <ion-icon name="help-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <ion-card>
+    <ion-card-header>
+      <img src="https://www.tre-mg.jus.br/imagens/fotos/tre-mg-urna-eletronica-2021/@@images/df151e51-1fc2-4572-a8db-94eaef8e213d.jpeg">
+      <ion-card-subtitle>Sobre a Equipe</ion-card-subtitle>
+      <ion-card-title>Sistema de Votos</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>  
+    <ion-list>
+      <ion-item lines="full">
+        <ion-thumbnail slot="start">
+          <img src="https://lh3.googleusercontent.com/ogw/ADea4I4hyEfBdpJMMBcxc2i4eKPgJV02QiTHZR82dJB5ag=s32-c-mo">
+        </ion-thumbnail>
+        <ion-label>
+          <div>
+            <h1>Paulo Nascimento</h1>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-card-content>
+  Back-end
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

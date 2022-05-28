@@ -7,15 +7,28 @@
 </ion-header>
 
 <ion-content color="light">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="dark">
+      <ion-tab-button [routerLink]="['/inicial']">
+        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/candidatos']">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/sobre']">
+        <ion-icon name="help-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
   <ion-searchbar placeholder="Procurar"
     (ionClear)="doSearchClear()"
     (ionChange)="doSearchBarChange($event)">
   </ion-searchbar>
 
-  <ion-list>
+  <ion-list class="ion-padding">
     <ion-item-sliding *ngFor="let candidato of candidatos" lines="full">
       <ion-thumbnail slot="start">
-        <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png">
+        <img style="margin-left: 10px; height: 46px;"src="https://cdn-icons-png.flaticon.com/512/95/95391.png">
       </ion-thumbnail>
       <ion-label>
         <div>
@@ -29,6 +42,5 @@
       </ion-label>
       </ion-item-sliding>
   </ion-list>
-
 </ion-content>
 
