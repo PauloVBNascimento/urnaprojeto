@@ -28,7 +28,7 @@
   <ion-list class="ion-padding">
     <ion-item-sliding *ngFor="let candidato of candidatos" lines="full">
       <ion-thumbnail slot="start">
-        <img style="margin-left: 10px; height: 46px;"src="https://cdn-icons-png.flaticon.com/512/95/95391.png">
+        <img style="margin-left: 10px; height: 46px;"src="../../../assets/images/icone.png">
       </ion-thumbnail>
       <ion-label>
         <div>
@@ -42,5 +42,8 @@
       </ion-label>
       </ion-item-sliding>
   </ion-list>
+  <div style="height: 200px;" class="ion-padding">
+    <ion-button type="button" vertical="bottom" color="dark" (click)="delete('000055')" expand="block">Zerar Votos</ion-button>
+  </div>
 </ion-content>
 

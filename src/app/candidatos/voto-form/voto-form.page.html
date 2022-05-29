@@ -10,7 +10,7 @@
 <ion-list class="ion-padding">
   <ion-item-sliding *ngFor="let candidato of candidatos" lines="full">
     <ion-thumbnail slot="start">
-      <img style="margin-left: 20px; height: 70px;"src="https://cdn-icons-png.flaticon.com/512/95/95391.png">
+      <img style="margin-left: 20px; height: 70px;"src="../../../assets/images/icone.png">
     </ion-thumbnail>
     <ion-label class="ion-padding">
       <div class="ion-padding">
@@ -43,6 +43,7 @@
       (ionChange)="doSearchBarChange($event)"></ion-input>
     </ion-item>
     <div class="ion-margin-vertical">
+      <audio src="../../../assets/sounds/fim.mp3"></audio>
       <ion-button type="submit" color="secondary" expand="block">Votar</ion-button>
     </div>
     <div class="ion-margin-vertical">

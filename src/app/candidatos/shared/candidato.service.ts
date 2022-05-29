@@ -55,6 +55,13 @@ export class CandidatoService {
     return this.db.executeSQL(sql,data);
   }
 
+  limparv(num: string) {
+    const sql = "UPDATE candidatos SET votos_c = 0 WHERE numero_c != ?";
+    const data = [num];
+
+    return this.db.executeSQL(sql,data);
+  }
+
   delete(id: number){
     const sql = 'DELETE FROM candidatos WHERE id_c = ?';
     const data = [id];

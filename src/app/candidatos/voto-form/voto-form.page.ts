@@ -39,6 +39,7 @@ export class VotoFormPage implements OnInit {
     try{
       const result = await this.candidatoService.save2(this.candidato);
       this.candidato.numero_c = result.insertNum;
+      const audio = document.querySelector('audio');
     
       const toast = await this.toastCtrl.create({
         header: 'FIM',
@@ -49,6 +50,7 @@ export class VotoFormPage implements OnInit {
       });
       
       toast.present();
+      audio.play();
     } catch (e) {
       const toast = await this.toastCtrl.create({
         header: 'ERRO',

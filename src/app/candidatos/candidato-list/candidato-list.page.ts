@@ -36,6 +36,8 @@ export class CandidatoListPage implements OnInit {
     const value = $event.target.value;
     if (value && value.length >= 2) {
       this.candidatos = await this.candidatoService.filter(value);
+    } else {
+      this.candidatoService.limpar();
     }
   }
 

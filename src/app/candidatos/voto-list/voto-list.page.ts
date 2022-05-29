@@ -10,6 +10,7 @@ import { CandidatoService } from '../shared/candidato.service';
 })
 export class VotoListPage implements OnInit {
   candidatos: Candidato[] = [];
+  candidato: Candidato;
   constructor(
     private candidatoService: CandidatoService,
     private toastCtrl: ToastController,
@@ -35,6 +36,30 @@ export class VotoListPage implements OnInit {
     const value = $event.target.value;
     if (value && value.length >=2){
       this.candidatos = await this.candidatoService.filter(value);
+    } else {
+      this.candidatoService.limpar();
     }
+  }
+  async delete(){ 
+      const alert = await this.alertCtrl.create({
+        header: 'Excluir?',
+        message: `Deseja excluir os votos? `,
+        buttons: [
+          {
+            text : 'Cancelar',
+            role : 'cancel'  
+          },
+          {
+            text : 'Excluir',
+            handler: () => {
+              this.candidatoService.limparv('000055');
+              this.loadCandidatos();
+            }
+          }
+        
+        ]
+      });
+      
+    alert.present();
   }
 }
