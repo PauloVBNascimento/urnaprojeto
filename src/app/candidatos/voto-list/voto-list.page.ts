@@ -37,7 +37,7 @@ export class VotoListPage implements OnInit {
     if (value && value.length >=2){
       this.candidatos = await this.candidatoService.filter(value);
     } else {
-      this.candidatoService.limpar();
+      this.loadCandidatos();
     }
   }
   async delete(){ 
