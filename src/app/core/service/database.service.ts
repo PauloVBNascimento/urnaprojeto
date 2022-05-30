@@ -29,6 +29,7 @@ export class DatabaseService {
   getCreateTable(){
     const sqls = [];
     sqls.push('CREATE TABLE IF NOT EXISTS candidatos (id_c INTEGER PRIMARY KEY AUTOINCREMENT, nome_c VARCHAR(50) NOT NULL, partido_c VARCHAR(50) NOT NULL, numero_c CHAR(6) NOT NULL UNIQUE CHECK (numero_c NOT LIKE ("%[^0-9]%")) CHECK (length(numero_c) = 5), votos_c INTEGER);');
+    sqls.push('CREATE TABLE IF NOT EXISTS eleitores (id_e INTEGER PRIMARY KEY AUTOINCREMENT, nome_e VARCHAR(50) NOT NULL, senha_e VARCHAR(20) NOT NULL, rep_e CHAR(1) NOT NULL, cpf_e NOT NULL UNIQUE CHECK (cpf_e NOT LIKE ("%[^0-9]%")) CHECK (length(cpf_e) = 11));');
     return sqls.join('\n');
   }
 

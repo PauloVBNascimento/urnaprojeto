@@ -3,6 +3,9 @@
     <ion-title>
       Bem-Vindo
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="menu-admin"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -21,17 +24,4 @@
 Dois terminais compõem a urna eletrônica: o terminal do mesário, onde o eleitor é identificado e autorizado a votar (em alguns modelos de urna, onde é verificada a sua identidade por meio da biometria), e o terminal do eleitor, onde é registrado numericamente o voto.
     </ion-card-content>
   </ion-card>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom" color="dark">
-      <ion-tab-button [routerLink]="['/inicial']">
-        <ion-icon name="file-tray-stacked-outline"></ion-icon>
-      </ion-tab-button>
-      <ion-tab-button [routerLink]="['/candidatos']">
-        <ion-icon name="person-outline"></ion-icon>
-      </ion-tab-button>
-      <ion-tab-button [routerLink]="['/sobre']">
-        <ion-icon name="help-outline"></ion-icon>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
 </ion-content>

@@ -39,7 +39,20 @@ const routes: Routes = [
   {
     path: 'sobre',
     loadChildren: () => import('./candidatos/sobre/sobre.module').then( m => m.SobrePageModule)
+  },
+  {
+    path: 'eleitores/newe',
+    loadChildren: () => import('./eleitores/eleitor-form/eleitor-form.module').then( m => m.EleitorFormPageModule)
+  },
+  {
+    path: 'eleitores/edite/:id_e',
+    loadChildren: () => import('./eleitores/eleitor-form/eleitor-form.module').then( m => m.EleitorFormPageModule)
+  },
+  {
+    path: 'eleitores',
+    loadChildren: () => import('./eleitores/eleitor-list/eleitor-list.module').then( m => m.EleitorListPageModule)
   }
+
 
 
 ];

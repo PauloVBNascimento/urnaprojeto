@@ -1,3 +1,42 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu menuId="menu-admin" content-id="admin" color="dark">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Admin</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item [routerLink]="['/inicial']">
+          <ion-icon name="file-tray-stacked-outline" slot="start"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/candidatos/login']">
+          <ion-icon name="log-in-outline" slot="start"></ion-icon>
+          <ion-label>Login</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/candidatos']">
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-label>Candidatos</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/eleitores']">
+          <ion-icon name="people-outline" slot="start"></ion-icon>
+          <ion-label>Eleitores</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/candidatos/newv']">
+          <ion-icon name="flag-outline" slot="start"></ion-icon>
+          <ion-label>Votar</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/candidatos/votos']">
+          <ion-icon name="receipt-outline" slot="start"></ion-icon>
+          <ion-label>Votos</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/sobre']">
+          <ion-icon name="information-outline" slot="start"></ion-icon>
+          <ion-label>Sobre</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="admin"></ion-router-outlet>
 </ion-app>
