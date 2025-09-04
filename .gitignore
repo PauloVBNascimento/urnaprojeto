@@ -34,5 +34,10 @@ npm-debug.log*
 # Ignore Gradle project-specific cache directory
 .gradle
 
+# Bancos de dados SQLite
+*.db
+*.db3
+*.sqlite
+*.sqlite3
 # Ignore Gradle build output directory
 build
